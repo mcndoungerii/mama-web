@@ -476,7 +476,9 @@ export default {
       selectedItems: [],
       selectedItem: null,
 
-      newItem: {},
+      newItem: {
+        categories: []
+      },
       selectedCategory: null,
       categories: [],
       newCategory: {}
@@ -552,6 +554,7 @@ export default {
 
     showCategoryModal() {
       this.$modal.show("selectCategoryModal");
+      this.selectedCategory = null;
     },
 
     saveCategory() {
@@ -587,13 +590,13 @@ export default {
     removeCategory(index) {
       this.processing = true;
       articleApi
-        .deleteArticle({
-          categories: this.newItem.categories[i].id,
+        .deleteCategory({
+          categories: this.newItem.categories[index].id,
           articleId: this.selectedItem.id
         })
         .then(res => {
           this.processing = false;
-          this.newItem.categories.splice(i, 1);
+          this.newItem.categories.splice(index, 1);
           this.$notify(
             "success",
             "Deleted Successfully",
@@ -642,12 +645,11 @@ export default {
       this.processing = true;
       let data = Object.assign({}, this.newItem);
       if (data.hasOwnProperty("id")) {
-        delete data.articles;
+        delete data.categories;
 
         articleApi
           .update(data)
           .then(res => {
-            console;
             this.processing = false;
             this.$modal.hide("addArticleModal");
             this.loadItems();

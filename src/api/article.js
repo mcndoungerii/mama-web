@@ -59,6 +59,30 @@ export default {
                 })
         })
     },
+    addCategory (data) {
+        const token = localStorage.getItem('token')
+        Object.assign(instance.defaults, {headers: {Authorization: token}})
+        return new Promise(function (resolve, reject) {
+            return instance.post('/article/addCategory', data)
+                .then((response) => {
+                    resolve(response)
+                }).catch((error) => {
+                    reject(error.response.data)
+                })
+        })
+    },
+    deleteCategory (data) {
+        const token = localStorage.getItem('token')
+        Object.assign(instance.defaults, {headers: {Authorization: token}})
+        return new Promise(function (resolve, reject) {
+            return instance.post('/article/removeCategory', data)
+                .then((response) => {
+                    resolve(response)
+                }).catch((error) => {
+                    reject(error.response.data)
+                })
+        })
+    },
     
     
 }
