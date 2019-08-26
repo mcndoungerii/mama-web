@@ -1,0 +1,48 @@
+$separator-color-light: #f3f3f3;
+$separator-color: #d7d7d7;
+$background-color: #f8f8f8;
+$foreground-color : white;
+$input-background: white;
+
+$dark-btn-background: #2E2B5C;
+$light-btn-background: #ececec;
+
+$button-text-color: #fff;
+
+$theme-color-1: #0EB89B;
+$theme-color-2: #562C9D;
+$theme-color-3: #116BCA;
+$theme-color-4: #0085D3;
+$theme-color-5: #0099C9;
+$theme-color-6: #00AAB4;
+
+$primary-color: #212121;
+$secondary-color: #A0ACBD;
+$muted-color: #98B0A9;
+
+$gradient-color-1 : #0EB89B;
+$gradient-color-2 : #116BCA;
+$gradient-color-3 : #2E2B5C;
+
+$shadowOffsetsTop : 1 3 10 14 19;
+$shadowBlursTop: 1.5 5 10 14 19;
+$shadowOpacitiesTop: 0.04 0.1 0.19 0.25 0.3;
+
+$shadowOffsetsBottom : 1 3 6 10 15;
+$shadowBlursBottom: 3 6 6 5 6;
+$shadowOpacitiesBottom: 0.04 0.1 0.2 0.22 0.22;
+
+$logoPath: "/assets/img/logo-black.svg";
+$logoPathMobile: "/assets/img/logo-mobile.svg";
+
+$lpBackgroundHome: "/assets/img/landing-page/home-background-green.png";
+$lpBackgroundSub: "/assets/img/landing-page/sub-background-green.png";
+$lpBackgroundFooter: "/assets/img/landing-page/footer-background-green.png";
+$lpBackgroundEllipsisBottom: "/assets/img/landing-page/white-background-bottom.png";
+$lpBackgroundEllipsisTop: "/assets/img/landing-page/white-background-top.png";
+
+$lpLogoPath: "/assets/img/logo-white.svg";
+$lpLogoPathPinned: "/assets/img/logo-black.svg";
+
+@import "../_mixins.scss";
+@import "../_piaf.style.scss";
