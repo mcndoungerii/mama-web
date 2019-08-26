@@ -341,7 +341,6 @@ import vSelect from "vue-select";
 import Switches from "vue-switches";
 import DataListItem from "components/Listing/User/DataListItem";
 import userApi from "../../../api/user";
-import branchApi from "../../../api/branch";
 
 let moment = require("moment");
 export default {
@@ -401,11 +400,7 @@ export default {
           );
           this.items = res.data.users;
           this.selectedItems = [];
-          branchApi
-            .list(`?sortBy=createdAt&sortOrder=DESC&skip=0&limit=100`)
-            .then(results => {
-              this.branches = results.data.branches;
-            });
+          
           this.isLoad = true;
         });
     },

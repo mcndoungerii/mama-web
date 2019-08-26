@@ -81,10 +81,7 @@ const routes = [{
 
         ]
       },
-      {
-        path: "products",
-        component: Products,
-      },
+      
       {
         path: "users",
         component: Users,
