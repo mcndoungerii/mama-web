@@ -22,9 +22,9 @@
   "menu": {
     "app": "Home",
     "users": "Users",
-    "orders": "Orders",
-    "products": "Products",
-    "associations": "Associations",
+    "articles": "Articles",
+    "baby-stages": "Baby Stages",
+    "baby-profiles": "Baby Profiles",
     "stocks": "Stocks",
     "suppliers": "Suppliers",
     "payments": "Payments",
