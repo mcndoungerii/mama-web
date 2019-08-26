@@ -59,6 +59,18 @@ export default {
                 })
         })
     },
+    delete (data) {
+        const token = localStorage.getItem('token')
+        Object.assign(instance.defaults, {headers: {Authorization: token}})
+        return new Promise(function (resolve, reject) {
+            return instance.post('/babyProfile/delete', data)
+                .then((response) => {
+                    resolve(response)
+                }).catch((error) => {
+                    reject(error.response.data)
+                })
+        })
+    },
     
     
 }

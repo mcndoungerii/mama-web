@@ -453,7 +453,7 @@ export default {
           this.$notify(
             "success",
             "Deleted Successfully",
-            `Stock deleted successfully`,
+            `Profile deleted successfully`,
             { duration: 3000, permanent: false }
           );
         })
