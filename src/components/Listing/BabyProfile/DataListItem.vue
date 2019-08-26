@@ -15,20 +15,20 @@
           <p class="mb-1">{{data.gender }}</p>
         </b-col>
         <b-col>
-          <p class="mb-1 text-muted text-small">Father Name</p>
-          <p class="mb-1">{{data.fatherName }}</p>
-        </b-col>
-        <b-col>
-          <p class="mb-1 text-muted text-small">Mother Name</p>
-          <p class="mb-1">{{data.motherName }}</p>
-        </b-col>
-        <b-col>
           <p class="mb-1 text-muted text-small">Age</p>
           <p class="mb-1">{{data.age }}</p>
         </b-col>
         <b-col>
           <p class="mb-1 text-muted text-small">Age Type</p>
           <p class="mb-1">{{data.ageType }}</p>
+        </b-col>
+        <b-col>
+          <p class="mb-1 text-muted text-small">Father Name</p>
+          <p class="mb-1">{{data.fatherName }}</p>
+        </b-col>
+        <b-col>
+          <p class="mb-1 text-muted text-small">Mother Name</p>
+          <p class="mb-1">{{data.motherName }}</p>
         </b-col>
 
         <b-col col lg="2">
