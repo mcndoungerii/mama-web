@@ -23,6 +23,10 @@ import DashboardsDefault from "pages/app/dashboards/Default";
 
 
 import Users from "pages/app/users/list"
+import Articles from "pages/app/articles/list"
+import Stages from "pages/app/babyStages/list"
+import Profiles from "pages/app/babyProfiles/list"
+
 
 
 
@@ -89,6 +93,18 @@ const routes = [{
       {
         path: "users/:type",
         component: Users,
+      },
+      {
+        path: "articles",
+        component: Articles,
+      },
+      {
+        path: "stages",
+        component: Stages,
+      },
+      {
+        path: "profiles",
+        component: Profiles,
       },
      
 

@@ -25,6 +25,24 @@
               <i class="simple-icon-people"></i>Users
             </a>
           </li>
+          <router-link tag="li" to="/app/articles" v-if="user.role ==='ADMIN'">
+            <a>
+              <i class="simple-icon-notebook"></i>
+              Articles
+            </a>
+          </router-link>
+          <router-link tag="li" to="/app/profiles" v-if="user.role ==='ADMIN'">
+            <a>
+              <i class="simple-icon-organization"></i>
+              Profiles
+            </a>
+          </router-link>
+          <router-link tag="li" to="/app/stages" v-if="user.role ==='ADMIN'">
+            <a>
+              <i class="simple-icon-event"></i>
+              Stages
+            </a>
+          </router-link>
 
           <li :class="{ active : selectedParentMenu==='menu'}">
             <a @click.prevent="openSubMenu($event,'menu')" href="#menu">
@@ -143,7 +161,6 @@
               <i class="simple-icon-user-following"></i> Customers
             </a>
           </router-link>
-          
         </ul>
 
         <ul
