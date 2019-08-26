@@ -18,17 +18,18 @@
               <icon-card :title="'Registered Customers'" icon="iconsmind-Environmental" :value=statistics.totalCustomers />
             </swiper-slide>
             <swiper-slide>
-              <icon-card :title="'Sales count'" icon="iconsmind-Coins" :value=statistics.totalSales />
+              <icon-card :title="'Articles count'" icon="iconsmind-Newspaper-2" :value=statistics.totalArticles />
             </swiper-slide>
             <swiper-slide>
-              <icon-card :title="'Products'" icon="iconsmind-Handshake" :value=statistics.totalProducts />
+              <icon-card :title="'Baby Profiles'" icon="iconsmind-Baby" :value=statistics.totalBabyProfiles />
             </swiper-slide>
+            
           </swiper>
           <resize-observer @notify="handleSwipersResize"/>
           </div>
           <b-row>
             <b-colxx md="6" class="mb-4">
-              <b-card v-if="lineChartData.labels.length>0" :title="'Product Received'">
+              <b-card v-if="lineChartData.labels.length>0" :title="'Articles Received'">
                 <b-refresh-button @click="refreshButtonClick"/>
                 <div class="dashboard-line-chart">
                   <line-shadow-chart :data="lineChartData" :height="300"/>
@@ -280,10 +281,10 @@ export default  {
                                 user.createdAt = moment(user.createdAt).format("MMM Do YY");
                                 userData.push(user)
                             }
-                            if(res.data.productTrend.length>0){
-                                for(var i=0;i<res.data.productTrend.length;i++){
-                                    this.lineChartData.datasets[0].data.push(res.data.productTrend[i].count)
-                                    this.lineChartData.labels.push(moment(res.data.productTrend[i].date).format('dddd'))
+                            if(res.data.articleTrend.length>0){
+                                for(var i=0;i<res.data.articleTrend.length;i++){
+                                    this.lineChartData.datasets[0].data.push(res.data.articleTrend[i].count)
+                                    this.lineChartData.labels.push(moment(res.data.articleTrend[i].date).format('dddd'))
                                 }
                             }
                             if(res.data.customerTrend.length>0){
@@ -292,7 +293,6 @@ export default  {
                                     this.customerTrendChart.labels.push(moment(res.data.customerTrend[i].date).format('dddd'))
                                 }
                             }
-                            this.associations = res.data.thresholdOrders;
                             this.users = userData;
                             this.statistics = res.data
                             this.isLoad = true;
