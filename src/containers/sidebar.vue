@@ -27,19 +27,19 @@
           </li>
           <router-link tag="li" to="/app/articles" v-if="user.role ==='ADMIN'">
             <a>
-              <i class="simple-icon-notebook"></i>
+              <i class="simple-icon-book-open"></i>
               Articles
             </a>
           </router-link>
           <router-link tag="li" to="/app/profiles" v-if="user.role ==='ADMIN'">
             <a>
-              <i class="simple-icon-organization"></i>
+              <i class="simple-icon-grid"></i>
               Profiles
             </a>
           </router-link>
           <router-link tag="li" to="/app/stages" v-if="user.role ==='ADMIN'">
             <a>
-              <i class="simple-icon-event"></i>
+              <i class="simple-icon-chart"></i>
               Stages
             </a>
           </router-link>
