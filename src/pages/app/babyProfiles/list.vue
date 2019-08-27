@@ -171,7 +171,7 @@
                       class="p-0 card-body align-self-center d-flex flex-column flex-lg-row justify-content-between min-width-zero align-items-lg-center"
                     >
                       <div class="w-40 w-sm-100">
-                        <p class="mb-1 text-muted text-small">Stock Created</p>
+                        <p class="mb-1 text-muted text-small">Profile Created</p>
                         <p class="list-item-heading mb-1">{{selectedItem.createdAt | humanDate}}</p>
                       </div>
                     </div>
@@ -184,7 +184,7 @@
                   variant="outline-secondary"
                   @click="hideModal('modalright')"
                 >{{ $t('layouts.cancel') }}</b-button>
-                <b-button variant="primary" class="mr-1" @click="showEditProfile()">Edit Stock</b-button>
+                <b-button variant="primary" class="mr-1" @click="showEditProfile()">Edit Profile</b-button>
               </template>
             </b-modal>
 
