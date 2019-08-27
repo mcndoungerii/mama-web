@@ -170,7 +170,7 @@
                 <div>
                   <b-row>
                     <b-colxx cols="8">
-                      <h1>{{newItem.hasOwnProperty("id")? 'Edit Profile' : 'Add Profile'}}</h1>
+                      <h1>{{newItem.hasOwnProperty("id")? 'Edit Stage' : 'Add Stage'}}</h1>
                     </b-colxx>
                     <b-colxx cols="4" class="text-right">
                       <a href="#" @click="$modal.hide('addStageModal')">
