@@ -341,12 +341,7 @@
                       variant="light"
                       size="lg"
                     >Cancel</b-button>
-                    <b-button
-                      @click="saveCategory"
-                      variant="primary"
-                      :disabled="processing"
-                      size="lg"
-                    >
+                    <b-button @click="saveCategory" variant="primary" size="lg">
                       <i v-if="processing" class="loader"></i>
                       <span v-if="!processing">Save</span>
                     </b-button>
@@ -374,7 +369,8 @@
                   </b-row>
                 </div>
                 <b-form-group label="Name">
-                  <b-form-input v-model="newCategory.name" />
+                  <b-form-input v-model="newCategory.name" :state="!$v.newCategory.name.$invalid" />
+                  <b-form-invalid-feedback>{{ $t('forms.category-name-message')}}</b-form-invalid-feedback>
                 </b-form-group>
                 <b-form-group>
                   <div class="float-sm-right">
@@ -382,7 +378,7 @@
                     <b-button
                       @click="addNewCategory"
                       variant="primary"
-                      :disabled="processing"
+                      :disabled="$v.newCategory.$invalid"
                       size="lg"
                     >
                       <i v-if="processing" class="loader"></i>
@@ -505,6 +501,11 @@ export default {
         required
       },
       description: {
+        required
+      }
+    },
+    newCategory: {
+      name: {
         required
       }
     }

@@ -425,7 +425,9 @@
     "lastname-message": "Please enter your last name!",
     "title-message": "Please enter title!",
     "author-message": "Please enter author!",
-    "description-message": "Please enter description!"
+    "description-message": "Please enter description!",
+    "category-name-message": "Please enter category name!"
+
 
 
 
