@@ -426,7 +426,19 @@
     "title-message": "Please enter title!",
     "author-message": "Please enter author!",
     "description-message": "Please enter description!",
-    "category-name-message": "Please enter category name!"
+    "category-name-message": "Please enter category name!",
+    "baby-name-message": "Please enter baby name!",
+    "gender-message": "Please enter gender!",
+    "age-message": "Please enter age!",
+    "age-type-message": "Please enter age type!",
+    "father-name-message": "Please enter father's name!",
+    "mother-name-message": "Please enter mother's name!"
+
+
+
+
+
+
 
 
 

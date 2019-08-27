@@ -209,36 +209,54 @@
                 <b-row>
                   <b-col>
                     <b-form-group label="Baby Name">
-                      <b-form-input v-model="newItem.babyName" />
+                      <b-form-input
+                        v-model="newItem.babyName"
+                        :state="!$v.newItem.babyName.$invalid"
+                      />
+                      <b-form-invalid-feedback>{{ $t('forms.baby-name-message')}}</b-form-invalid-feedback>
                     </b-form-group>
                   </b-col>
                   <b-col>
                     <b-form-group label="Gender">
-                      <b-form-input v-model="newItem.gender" />
+                      <b-form-input v-model="newItem.gender" :state="!$v.newItem.gender.$invalid" />
+                      <b-form-invalid-feedback>{{ $t('forms.gender-message')}}</b-form-invalid-feedback>
                     </b-form-group>
                   </b-col>
                 </b-row>
                 <b-row>
                   <b-col>
                     <b-form-group label="Age">
-                      <b-form-input v-model="newItem.age" />
+                      <b-form-input v-model="newItem.age" :state="!$v.newItem.age.$invalid" />
+                      <b-form-invalid-feedback>{{ $t('forms.age-message')}}</b-form-invalid-feedback>
                     </b-form-group>
                   </b-col>
                   <b-col>
                     <b-form-group label="Age Type">
-                      <b-form-input v-model="newItem.ageType" />
+                      <b-form-input
+                        v-model="newItem.ageType"
+                        :state="!$v.newItem.ageType.$invalid"
+                      />
+                      <b-form-invalid-feedback>{{ $t('forms.age-type-message')}}</b-form-invalid-feedback>
                     </b-form-group>
                   </b-col>
                 </b-row>
                 <b-row>
                   <b-col>
                     <b-form-group label="Father Name">
-                      <b-form-input v-model="newItem.fatherName" />
+                      <b-form-input
+                        v-model="newItem.fatherName"
+                        :state="!$v.newItem.fatherName.$invalid"
+                      />
+                      <b-form-invalid-feedback>{{ $t('forms.father-name-message')}}</b-form-invalid-feedback>
                     </b-form-group>
                   </b-col>
                   <b-col>
                     <b-form-group label="Mother Name">
-                      <b-form-input v-model="newItem.motherName" />
+                      <b-form-input
+                        v-model="newItem.motherName"
+                        :state="!$v.newItem.motherName.$invalid"
+                      />
+                      <b-form-invalid-feedback>{{ $t('forms.mother-name-message')}}</b-form-invalid-feedback>
                     </b-form-group>
                   </b-col>
                 </b-row>
@@ -261,7 +279,7 @@
                     <b-button
                       @click="addProfile"
                       variant="primary"
-                      :disabled="processing"
+                      :disabled="$v.newItem.$invalid"
                       size="lg"
                       style="margin:5px"
                     >
@@ -329,6 +347,8 @@
 import { DataListIcon, ThumbListIcon, ImageListIcon } from "components/Svg";
 import vSelect from "vue-select";
 import Switches from "vue-switches";
+import { validationMixin } from "vuelidate";
+const { required, minLength, between } = require("vuelidate/lib/validators");
 import DataListItem from "components/Listing/BabyProfile/DataListItem";
 import profileApi from "../../../api/babyProfile";
 
@@ -364,6 +384,29 @@ export default {
 
       newItem: {}
     };
+  },
+  mixins: [validationMixin],
+  validations: {
+    newItem: {
+      babyName: {
+        required
+      },
+      gender: {
+        required
+      },
+      age: {
+        required
+      },
+      ageType: {
+        required
+      },
+      fatherName: {
+        required
+      },
+      motherName: {
+        required
+      }
+    }
   },
   methods: {
     loadItems() {
