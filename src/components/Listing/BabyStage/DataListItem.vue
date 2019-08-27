@@ -7,6 +7,10 @@
           <p class="mb-1">{{data.id }}</p>
         </b-col>
         <b-col>
+          <p class="mb-1 text-muted text-small">Name</p>
+          <p class="mb-1">{{data.name }}</p>
+        </b-col>
+        <b-col>
           <p class="mb-1 text-muted text-small">Start Age</p>
           <p class="mb-1">{{data.startAge }}</p>
         </b-col>
