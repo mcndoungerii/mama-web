@@ -218,8 +218,14 @@
                   </b-col>
                   <b-col>
                     <b-form-group label="Gender">
-                      <b-form-input v-model="newItem.gender" :state="!$v.newItem.gender.$invalid" />
-                      <b-form-invalid-feedback>{{ $t('forms.gender-message')}}</b-form-invalid-feedback>
+                      <b-form-radio-group
+                        id="radio-slots"
+                        v-model="newItem.gender"
+                        :options="gender"
+                        name="radio-options-slots"
+                      >
+                        <b-form-invalid-feedback>{{ $t('forms.gender-message')}}</b-form-invalid-feedback>
+                      </b-form-radio-group>
                     </b-form-group>
                   </b-col>
                 </b-row>
@@ -352,7 +358,13 @@ import { DataListIcon, ThumbListIcon, ImageListIcon } from "components/Svg";
 import vSelect from "vue-select";
 import Switches from "vue-switches";
 import { validationMixin } from "vuelidate";
-const { required, minLength, between } = require("vuelidate/lib/validators");
+const {
+  required,
+  minLength,
+  between,
+  alpha,
+  numeric
+} = require("vuelidate/lib/validators");
 import DataListItem from "components/Listing/BabyProfile/DataListItem";
 import profileApi from "../../../api/babyProfile";
 
@@ -393,6 +405,10 @@ export default {
           value: "PRE"
         },
         { label: "Post", value: "POST" }
+      ],
+      gender: [
+        { text: "Male", value: "male" },
+        { text: "Female", value: "female" }
       ]
     };
   },

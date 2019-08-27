@@ -436,7 +436,9 @@
     "name-message": "Please enter name!",
     "type-message": "Please select a type!",
     "start-age-message": "Please enter start age!",
-    "end-age-message": "Please enter end age!"
+    "end-age-message": "Please enter end age!",
+    "alpha-message": "Must be characters only!",
+    "numeric-message": "Must be numbers only!"
 
 
 

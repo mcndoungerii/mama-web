@@ -307,7 +307,13 @@
 import { DataListIcon, ThumbListIcon, ImageListIcon } from "components/Svg";
 import vSelect from "vue-select";
 import { validationMixin } from "vuelidate";
-const { required, minLength, between } = require("vuelidate/lib/validators");
+const {
+  required,
+  minLength,
+  between,
+  alpha,
+  numeric
+} = require("vuelidate/lib/validators");
 import Switches from "vue-switches";
 import DataListItem from "components/Listing/BabyStage/DataListItem";
 import stageApi from "../../../api/babyStage";
