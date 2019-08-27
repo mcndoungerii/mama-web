@@ -15,10 +15,6 @@
           <p class="mb-1">{{data.author }}</p>
         </b-col>
         <b-col>
-          <p class="mb-1 text-muted text-small">Status</p>
-          <b-badge pill :variant="data.status === true?'success':'danger'">{{ data.status }}</b-badge>
-        </b-col>
-        <b-col>
           <p class="mb-1 text-muted text-small">Categories</p>
           <b-badge
             v-for="(cat,index) in data.categories"
@@ -27,6 +23,13 @@
             pill
             variant="secondary"
           >{{cat.name}}</b-badge>
+        </b-col>
+        <b-col>
+          <p class="mb-1 text-muted text-small">Status</p>
+          <b-badge
+            pill
+            :variant="data.status?'success':'danger'"
+          >{{ data.status?'Active':'Not Active' }}</b-badge>
         </b-col>
         <b-col col lg="2">
           <p class="mb-1 text-muted text-small">Created at</p>

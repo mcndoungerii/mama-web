@@ -127,18 +127,6 @@
                     </div>
                   </div>
                 </div>
-                <div v-if="selectedItem.status" class="mb-3 pb-3 border-bottom border-bottom">
-                  <div class="pl-0 mb-15 d-flex flex-grow-1 min-width-zero">
-                    <div
-                      class="p-0 card-body align-self-center d-flex flex-column flex-lg-row justify-content-between min-width-zero align-items-lg-center"
-                    >
-                      <div class="w-40 w-sm-100">
-                        <p class="mb-1 text-muted text-small">Status</p>
-                        <p class="list-item-heading mb-1">{{selectedItem.status}}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
                 <div v-if="selectedItem.categories" class="mb-3 pb-3 border-bottom border-bottom">
                   <p class="mb-1 text-muted text-small">Categories</p>
                   <b-card
@@ -153,13 +141,28 @@
                           class="p-3 align-self-center d-flex flex-column flex-lg-row justify-content-between min-width-zero"
                         >
                           <div class="min-width-zero">
-                            <p class="text-muted text-small mb-2">Categories</p>
+                            <p class="text-muted text-small mb-2">Category Name</p>
                             <h6 class="mb-1 card-subtitle truncate">{{cat.name}}</h6>
                           </div>
                         </div>
                       </div>
                     </b-col>
                   </b-card>
+                </div>
+                <div v-if="selectedItem.status" class="mb-3 pb-3 border-bottom border-bottom">
+                  <div class="pl-0 mb-15 d-flex flex-grow-1 min-width-zero">
+                    <div
+                      class="p-0 card-body align-self-center d-flex flex-column flex-lg-row justify-content-between min-width-zero align-items-lg-center"
+                    >
+                      <div class="w-40 w-sm-100">
+                        <p class="mb-1 text-muted text-small">Status</p>
+                        <b-badge
+                          pill
+                          :variant="selectedItem.status?'success':'danger'"
+                        >{{ selectedItem.status?'Active':'Not Active' }}</b-badge>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 <div v-if="selectedItem.createdAt" class="mb-3 pb-3 border-bottom border-bottom">
