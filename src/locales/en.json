@@ -430,11 +430,11 @@
     "baby-name-message": "Please enter baby name!",
     "gender-message": "Please enter gender!",
     "age-message": "Please enter age!",
-    "age-type-message": "Please enter age type!",
+    "age-type-message": "Please select age type!",
     "father-name-message": "Please enter father's name!",
     "mother-name-message": "Please enter mother's name!",
     "name-message": "Please enter name!",
-    "type-message": "Please enter type!",
+    "type-message": "Please select a type!",
     "start-age-message": "Please enter start age!",
     "end-age-message": "Please enter end age!"
 

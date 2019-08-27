@@ -232,10 +232,14 @@
                   </b-col>
                   <b-col>
                     <b-form-group label="Age Type">
-                      <b-form-input
+                      <v-select
                         v-model="newItem.ageType"
+                        :options="ageTypes"
+                        index="value"
                         :state="!$v.newItem.ageType.$invalid"
-                      />
+                      >
+                        <template slot="option" slot-scope="option">{{ option.label }}</template>
+                      </v-select>
                       <b-form-invalid-feedback>{{ $t('forms.age-type-message')}}</b-form-invalid-feedback>
                     </b-form-group>
                   </b-col>
@@ -382,7 +386,14 @@ export default {
       selectedItems: [],
       selectedItem: null,
 
-      newItem: {}
+      newItem: {},
+      ageTypes: [
+        {
+          label: "Pre",
+          value: "PRE"
+        },
+        { label: "Post", value: "POST" }
+      ]
     };
   },
   mixins: [validationMixin],

@@ -191,7 +191,14 @@
                   </b-col>
                   <b-col>
                     <b-form-group label="Type">
-                      <b-form-input v-model="newItem.type" :state="!$v.newItem.type.$invalid" />
+                      <v-select
+                        v-model="newItem.type"
+                        :options="types"
+                        index="value"
+                        :state="!$v.newItem.type.$invalid"
+                      >
+                        <template slot="option" slot-scope="option">{{ option.label }}</template>
+                      </v-select>
                       <b-form-invalid-feedback>{{ $t('forms.type-message')}}</b-form-invalid-feedback>
                     </b-form-group>
                   </b-col>
@@ -335,7 +342,14 @@ export default {
       selectedItems: [],
       selectedItem: null,
 
-      newItem: {}
+      newItem: {},
+      types: [
+        {
+          label: "Pre",
+          value: "PRE"
+        },
+        { label: "Post", value: "POST" }
+      ]
     };
   },
   mixins: [validationMixin],
