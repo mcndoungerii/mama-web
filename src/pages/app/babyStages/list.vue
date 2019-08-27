@@ -185,24 +185,31 @@
                 <b-row>
                   <b-col>
                     <b-form-group label="Name">
-                      <b-form-input v-model="newItem.name" />
+                      <b-form-input v-model="newItem.name" :state="!$v.newItem.name.$invalid" />
+                      <b-form-invalid-feedback>{{ $t('forms.name-message')}}</b-form-invalid-feedback>
                     </b-form-group>
                   </b-col>
                   <b-col>
                     <b-form-group label="Type">
-                      <b-form-input v-model="newItem.type" />
+                      <b-form-input v-model="newItem.type" :state="!$v.newItem.type.$invalid" />
+                      <b-form-invalid-feedback>{{ $t('forms.type-message')}}</b-form-invalid-feedback>
                     </b-form-group>
                   </b-col>
                 </b-row>
                 <b-row>
                   <b-col>
                     <b-form-group label="Start Age">
-                      <b-form-input v-model="newItem.startAge" />
+                      <b-form-input
+                        v-model="newItem.startAge"
+                        :state="!$v.newItem.startAge.$invalid"
+                      />
+                      <b-form-invalid-feedback>{{ $t('forms.start-age-message')}}</b-form-invalid-feedback>
                     </b-form-group>
                   </b-col>
                   <b-col>
                     <b-form-group label="End Age">
-                      <b-form-input v-model="newItem.endAge" />
+                      <b-form-input v-model="newItem.endAge" :state="!$v.newItem.endAge.$invalid" />
+                      <b-form-invalid-feedback>{{ $t('forms.end-age-message')}}</b-form-invalid-feedback>
                     </b-form-group>
                   </b-col>
                 </b-row>
@@ -225,7 +232,7 @@
                     <b-button
                       @click="addStage"
                       variant="primary"
-                      :disabled="processing"
+                      :disabled="$v.newItem.$invalid"
                       size="lg"
                       style="margin:5px"
                     >
@@ -292,6 +299,8 @@
 <script>
 import { DataListIcon, ThumbListIcon, ImageListIcon } from "components/Svg";
 import vSelect from "vue-select";
+import { validationMixin } from "vuelidate";
+const { required, minLength, between } = require("vuelidate/lib/validators");
 import Switches from "vue-switches";
 import DataListItem from "components/Listing/BabyStage/DataListItem";
 import stageApi from "../../../api/babyStage";
@@ -328,6 +337,23 @@ export default {
 
       newItem: {}
     };
+  },
+  mixins: [validationMixin],
+  validations: {
+    newItem: {
+      name: {
+        required
+      },
+      type: {
+        required
+      },
+      startAge: {
+        required
+      },
+      endAge: {
+        required
+      }
+    }
   },
   methods: {
     loadItems() {
