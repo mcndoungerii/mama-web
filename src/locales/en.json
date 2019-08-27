@@ -422,7 +422,13 @@
     "firstname": "First name",
     "firstname-message": "Please enter your first name!",
     "lastname": "Last name",
-    "lastname-message": "Please enter your last name!"
+    "lastname-message": "Please enter your last name!",
+    "title-message": "Please enter title!",
+    "author-message": "Please enter author!",
+    "description-message": "Please enter description!"
+
+
+
   },
   "form-components": {
     "custom-inputs": "Custom Inputs",

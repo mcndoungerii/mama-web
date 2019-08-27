@@ -209,19 +209,25 @@
                 <b-row>
                   <b-col>
                     <b-form-group label="Title">
-                      <b-form-input v-model="newItem.title" />
+                      <b-form-input v-model="newItem.title" :state="!$v.newItem.title.$invalid" />
+                      <b-form-invalid-feedback>{{ $t('forms.title-message')}}</b-form-invalid-feedback>
                     </b-form-group>
                   </b-col>
                   <b-col>
                     <b-form-group label="Author">
-                      <b-form-input v-model="newItem.author" />
+                      <b-form-input v-model="newItem.author" :state="!$v.newItem.author.$invalid" />
+                      <b-form-invalid-feedback>{{ $t('forms.author-message')}}</b-form-invalid-feedback>
                     </b-form-group>
                   </b-col>
                 </b-row>
                 <b-row>
                   <b-col>
                     <b-form-group label="Description">
-                      <b-form-input v-model="newItem.description" />
+                      <b-form-input
+                        v-model="newItem.description"
+                        :state="!$v.newItem.description.$invalid"
+                      />
+                      <b-form-invalid-feedback>{{ $t('forms.description-message')}}</b-form-invalid-feedback>
                     </b-form-group>
                   </b-col>
                 </b-row>
@@ -284,7 +290,7 @@
                     <b-button
                       @click="addArticle"
                       variant="primary"
-                      :disabled="processing"
+                      :disabled="$v.newItem.$invalid"
                       size="lg"
                       style="margin:5px"
                     >
@@ -443,6 +449,8 @@
 import { DataListIcon, ThumbListIcon, ImageListIcon } from "components/Svg";
 import vSelect from "vue-select";
 import Switches from "vue-switches";
+import { validationMixin } from "vuelidate";
+const { required, minLength, between } = require("vuelidate/lib/validators");
 import DataListItem from "components/Listing/Article/DataListItem";
 import articleApi from "../../../api/article";
 import categoryApi from "../../../api/category";
@@ -486,6 +494,20 @@ export default {
       categories: [],
       newCategory: {}
     };
+  },
+  mixins: [validationMixin],
+  validations: {
+    newItem: {
+      title: {
+        required
+      },
+      author: {
+        required
+      },
+      description: {
+        required
+      }
+    }
   },
   methods: {
     loadItems() {
